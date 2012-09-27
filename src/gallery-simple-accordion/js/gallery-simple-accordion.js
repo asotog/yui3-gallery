@@ -10,7 +10,7 @@ YUI.add('gallery-simple-accordion', function (Y) {
         SimpleAccordion.superclass.constructor.apply(this, arguments);
     }
 
-    SimpleAccordion.NAME = 'simple-accordion';
+    SimpleAccordion.NAME = 'gallery-simple-accordion';
 
     SimpleAccordion.ATTRS = {};
 
