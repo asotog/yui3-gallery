@@ -1,0 +1,10 @@
+{
+    "gallery-facebook-widget": {
+        "requires": [
+            "widget",
+            "base-build",
+            "substitute"
+        ],
+        "skinnable": true
+    }
+}

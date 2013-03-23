@@ -1,0 +1,11 @@
+{
+    "name"       : "gallery-facebook-widget",
+    "displayName": "Gallery: gallery-facebook-widget",
+    "description": "*Summary Goes Here*",
+    "author"     : [ "asotog88" ],
+    "use"        : [ "gallery-facebook-widget" ],
+
+    "tags": [ "gallery" ],
+
+    "examples": []
+}

@@ -1,0 +1,22 @@
+.yui3-skin-sam  .yui3-gallery-facebook-widget-content {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.yui3-skin-sam  .yui3-gallery-facebook-widget-content .widget-content {
+    border: solid #BDC7D8 1px;
+    border-top: 0px;
+}
+
+.yui3-skin-sam  .yui3-gallery-facebook-widget-content .widget-title {
+    background-color: #3B5998;
+    color: #FFFFFF;
+}
+
+.yui3-skin-sam  .yui3-gallery-facebook-widget-content  li {
+    border-top: solid #BDC7D8 1px;
+    font-size: 77%;
+}
+
+.yui3-skin-sam  .yui3-gallery-facebook-widget-content  li.hover {
+	background: #E5E7EB
+}

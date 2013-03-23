@@ -1,0 +1,7 @@
+{
+    "gallery-facebook-dao": {
+        "requires": [
+            "yui-base"
+        ]
+    }
+}

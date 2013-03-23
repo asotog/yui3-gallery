@@ -1,0 +1,10 @@
+{
+    "name": "gallery-facebook-widget",
+    "builds": {
+        "gallery-facebook-widget": {
+            "jsfiles": [
+                "js/gallery-facebook-widget.js"
+            ]
+        }
+    }
+}
