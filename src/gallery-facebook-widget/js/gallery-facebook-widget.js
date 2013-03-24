@@ -1,46 +1,25 @@
 Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
-
+    
+    fbData: null,
+    
     initializer: function () {
-        this._loadFBSdk();
+        var me = this;
+        var fbDataConfig = {
+            fbAppId: this.get('fbAppId'),
+            fbChannelFile: this.get('fbChannelFile'),
+            onInit: function(e) {
+                me._log('data access initialized');
+                me.fbData.listSitePosts(me.get('fbSiteId'), function(data) {
+                   me._log('site posts', data); 
+                   me._set('posts', data.data);
+                });
+            }
+        };
+        this.fbData = new Y.FacebookDAO(fbDataConfig);
     },
 
     destructor: function () {
 
-    },
-
-    _loadFBSdk: function () {
-        var me = this;
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: me.get('fbAppId'),
-                channelUrl: me.get('fbChannelFile'),
-                status: true,
-                cookie: true,
-                xfbml: true
-            });
-            FB.getLoginStatus(function (response) {
-                me._log('checking login status : ', response);
-                if (response.status === 'not_authorized' || response.status === 'not_logged_in') {
-                    me.fbLogin();
-                    return;
-                }
-                me.syncData();
-            });
-
-        };
-
-        (function (d) {
-            var js, id = 'facebook-jssdk',
-                ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement('script');
-            js.id = id;
-            js.async = true;
-            js.src = "http://connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        }(document, /*debug*/ false));
     },
 
     bindUI: function () {
@@ -56,60 +35,20 @@ Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
     },
 
     syncUI: function () {
-        var me = this;
-        var posts = this.get('posts').data;
-        this._set('postsCount', posts.length);
+        this.get('contentBox').one('.widget-content').setHTML(Y.substitute(this.get('TEMPLATES').POSTS_LIST, {}));
+        var postsListNode = this.get('contentBox').one('ul');
+        var posts = this.get('posts');
         for (var i = 0; i < posts.length; i++) {
-            var messageFrom = posts[i].from.id;
-            (function (messageFrom, index) {
-	            FB.api(messageFrom + '/picture', function (response) {
-	                me.syncPosts(posts, response, index);
-	            });    
-            })(messageFrom, i);
+            var postNode = Y.Node.create(Y.substitute(this.get('TEMPLATES').POST, {image: posts[i].fb_data.portrait_image, message: posts[i].fb_data.message  }));
+            postNode.setData('post-url', 'url');
+            postsListNode.append(postNode);
         }
     },
-
-    syncPosts: function (posts, image, index) {
-        var me = this;
-        var post = posts[index];
-        this._set('postsCount', this.get('postsCount') - 1);
-        var message = (post.message) ? post.message : ((post.story) ? post.story : null);
-		posts[index].custom_message = message;
-		posts[index].custom_user_message_image = image.data.url;
-        if (this.get('postsCount') == 0) {
-            me.get('contentBox').one('.widget-content').setHTML(Y.substitute(me.get('TEMPLATES').POSTS_LIST, {}));
-        	var postsListNode = me.get('contentBox').one('ul');
-            for (var i = 0; i < posts.length; i++) {
-                var postNode = Y.Node.create(Y.substitute(me.get('TEMPLATES').POST, {image: posts[i].custom_user_message_image, message: posts[i].custom_message  }));
-                postNode.setData('post-url', 'url');
-                postsListNode.append(postNode);
-        	}
-        }
-    },
-
-    syncData: function () {
-        this.fbGetSitePosts();
-    },
-
-    fbGetSitePosts: function () {
-        var me = this;
-        FB.api(this.get('fbSiteId') + '/feed', function (response) {
-            me._log('Site feed result:', response);
-            me._set('posts', response);
-        });
-    },
-
-    fbLogin: function () {
-        FB.login(function (response) {
-            this.syncData();
-        });
-    },
-
 
     _log: function (message, obj) {
-        console.info('[' + this.getClassName() + '] ' + message);
+        console.log('[' + this.getClassName() + '] ' + message);
         if (obj) {
-            console.info(obj);
+            console.log(obj);
         }
     }
 }, {
@@ -127,12 +66,7 @@ Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
         posts: {
             readOnly: true
         },
-		
-		postsCount: {
-			value: 0,
-			readOnly: true
-		},
-		
+
         TEMPLATES: {
             value: {
                 POSTS_LIST: '<ul></ul>',

@@ -1,7 +1,8 @@
 {
     "gallery-facebook-dao": {
         "requires": [
-            "yui-base"
+            "base-build",
+            "base"
         ]
     }
 }

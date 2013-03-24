@@ -3,7 +3,8 @@
         "requires": [
             "widget",
             "base-build",
-            "substitute"
+            "substitute",
+            "gallery-facebook-dao"
         ],
         "skinnable": true
     }
