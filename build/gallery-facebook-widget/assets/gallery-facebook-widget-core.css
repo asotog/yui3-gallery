@@ -1,0 +1,34 @@
+.yui3-gallery-facebook-widget {
+	padding: 5px;
+}
+
+.yui3-gallery-facebook-widget .widget-title {
+	padding: 5px;
+	border-radius: 5px 5px 0 0;
+}
+
+.yui3-gallery-facebook-widget ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.yui3-gallery-facebook-widget li {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.yui3-gallery-facebook-widget img,
+.yui3-gallery-facebook-widget p {
+    float: left;
+}
+
+.yui3-gallery-facebook-widget p {
+	width: 70%;
+	margin: 0;
+    padding: 5px 0 0 15px;
+}
+
+.yui3-gallery-facebook-widget .clear {
+	clear: both;
+}
