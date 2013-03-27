@@ -1,9 +1,10 @@
 YUI.add('gallery-facebook-dao', function (Y, NAME) {
 
 /**
-* This is the description for my class.
+* Facebook dao is an utility to add progressive functionality to retrieve and update data from facebook using graph api
 *
-* @class MyClass
+* @class FacebookDAO
+* @module gallery-facebook-dao
 * @constructor
 */
 function FacebookDAO(arguments) {
@@ -14,8 +15,21 @@ function FacebookDAO(arguments) {
 
 FacebookDAO.prototype = {
     
+    /**
+	* Configuration object
+	* 
+	* @property configuration
+	* @type {Object}
+	*/
     configuration: null,
 
+	/**
+	* Retrieves the list of posts of sites or page from facebook
+	*
+	* @method listSitePosts
+	* @param {String} siteId Is the site id of the site or page where are going to be retrieved the posts
+	* @param {Function} callback A callback function executed when the results are ready
+	*/
     listSitePosts: function(siteId, callback) {
         FB.api(siteId + '/feed', function (response) {
             var posts = response;

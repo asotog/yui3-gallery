@@ -1,7 +1,8 @@
 /**
 * This is the description for my class.
 *
-* @class MyClass
+* @class FacebookWidget
+* @module gallery-facebook-widget
 * @constructor
 */
 Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
