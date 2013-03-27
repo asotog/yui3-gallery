@@ -1,5 +1,11 @@
 YUI.add('gallery-facebook-widget', function (Y, NAME) {
 
+/**
+* This is the description for my class.
+*
+* @class MyClass
+* @constructor
+*/
 Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
     
     fbData: null,
@@ -32,7 +38,7 @@ Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
             e.currentTarget.addClass('hover');
         }, 'li');
         this.get('contentBox').delegate('click', function(e) {
-
+            window.open(e.currentTarget.getData('post-url'), '_blank').focus();
         }, 'li');
     },
 
@@ -42,7 +48,7 @@ Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
         var posts = this.get('posts');
         for (var i = 0; i < posts.length; i++) {
             var postNode = Y.Node.create(Y.substitute(this.get('TEMPLATES').POST, {image: posts[i].fb_data.portrait_image, message: posts[i].fb_data.message  }));
-            postNode.setData('post-url', 'url');
+            postNode.setData('post-url', posts[i].actions[0].link);
             postsListNode.append(postNode);
         }
     },

@@ -1,3 +1,9 @@
+/**
+* This is the description for my class.
+*
+* @class MyClass
+* @constructor
+*/
 function FacebookDAO(arguments) {
     this.configuration = arguments;
     this._initDataAccess();
