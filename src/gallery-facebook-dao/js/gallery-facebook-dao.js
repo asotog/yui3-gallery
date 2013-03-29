@@ -4,10 +4,10 @@
  * @class FacebookDAO
  * @module gallery-facebook-dao
  * @constructor
- * @param arguments {Object} Is the configuration object
+ * @param configuration {Object} Is the configuration object
  */
-function FacebookDAO(arguments) {
-    this.configuration = arguments;
+function FacebookDAO(configuration) {
+    this.configuration = configuration;
     this._initDataAccess();
     this._loadFBComponents();
 }
@@ -16,7 +16,7 @@ FacebookDAO.prototype = {
 
     /**
      * Configuration object
-     * 
+     *
      * @property configuration
      * @type {Object}
      */
@@ -69,7 +69,7 @@ FacebookDAO.prototype = {
             js.async = true;
             js.src = "http://connect.facebook.net/en_US/all.js";
             ref.parentNode.insertBefore(js, ref);
-        }(document, /*debug*/ false));
+        }(document, false));
     },
 
     _initDataAccess: function () {

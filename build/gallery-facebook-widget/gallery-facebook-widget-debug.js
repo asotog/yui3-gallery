@@ -73,6 +73,7 @@ Y.FacebookWidget = Y.Base.create("gallery-facebook-widget", Y.Widget, [], {
         },
 
         posts: {
+			value: [],
             readOnly: true
         },
 
