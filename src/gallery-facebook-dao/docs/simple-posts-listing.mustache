@@ -1,0 +1,44 @@
+<div class="intro">
+    <p>
+        {{description}}
+    </p>
+</div>
+<p>Instantiate the facebook dao and then list posts is pretty simple, as can see in the following code:</p>
+
+<pre class="prettyprint">
+YUI().use('gallery-facebook-dao', function (Y) {
+    var fbDataConfig = {
+        fbAppId: '12345798989',
+        fbChannelFile: '/channel.html',
+        onInit: function (e) {
+            fbDao.listSitePosts('136614686409487', function (data) {
+                /* output the data = posts */
+                console.info(data);
+            });
+        }
+    };
+    var fbDao = new Y.FacebookDAO(fbDataConfig);
+});
+</pre>
+
+
+<h2>Full Source</h2>
+
+
+```
+    <script>
+        YUI().use('gallery-facebook-dao', function (Y) {
+            var fbDataConfig = {
+                fbAppId: '12345798989',
+                fbChannelFile: '/channel.html',
+                onInit: function (e) {
+                    fbDao.listSitePosts('136614686409487', function (data) {
+                        /* output the data = posts */
+                        console.info(data);
+                    });
+                }
+            };
+            var fbDao = new Y.FacebookDAO(fbDataConfig);
+        });
+    </script>
+```

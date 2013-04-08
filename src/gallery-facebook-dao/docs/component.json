@@ -1,11 +1,16 @@
 {
-    "name"       : "gallery-facebook-dao",
+    "name": "gallery-facebook-dao",
     "displayName": "Gallery: gallery-facebook-dao",
-    "description": "*Summary Goes Here*",
-    "author"     : [ "asotog88" ],
-    "use"        : [ "gallery-facebook-dao" ],
+    "description": "Facebook class to make data access operations",
+    "author": ["asotog88"],
+    "use": ["gallery-facebook-dao"],
 
-    "tags": [ "gallery" ],
+    "tags": ["gallery"],
 
-    "examples": []
+    "examples": [{
+            "name": "simple-posts-listing",
+            "displayName": "Simple Posts Listing",
+            "description": "Lists posts from a particular site or page"
+        }
+    ]
 }
