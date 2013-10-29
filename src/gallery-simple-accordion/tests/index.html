@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="no-js">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Welcome to YUI3!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.10.1/cssfonts/cssfonts-min.css&3.10.1/cssgrids/cssgrids-min.css&3.10.1/cssreset/cssreset-min.css&3.10.1/cssbase/cssbase-min.css">
+        <style>
+            
+            /* component styles */
+            .accordion-item-content, .accordion-item-content.hide {
+                display: none;
+            }
+            .accordion-item-content.show {
+                display: block;
+            }
+            
+            /* other */
+            .one-accordion {
+                width:200px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="one-accordion">
+            <div class="accordion-item">
+                <a href="#" class="accordion-item-link">Departments</a>
+                <div class="accordion-item-content">
+                    Arcu enim phasellus proin mauris placerat. Risus turpis hac! Eu tortor aenean pid, vut mattis odio? Etiam auctor! Lacus     ut augue lectus vut sociis, ut nunc lacus elementum
+                </div>
+            </div>
+            <div class="accordion-item">
+                <a href="#" class="accordion-item-link">News</a>
+                <div class="accordion-item-content">
+                    Ridiculus montes eros sit a lorem natoque! Ultricies! Parturient in habitasse aliquet in augue adipiscing! Magna turpis eu in. Hac mid magna ac. Et urna magnis nascetur, ultrices, dignissim, pulvinar et enim, amet urna ultricies vel integer a est rhoncus, et et placerat nec cras, vel? Egestas nunc mattis? Nec, purus ut mus facili
+                </div>
+            </div>
+            <div class="accordion-item">
+                <a href="#" class="accordion-item-link">Forms</a>
+            </div>
+            <div class="accordion-item">
+                <a href="#" class="accordion-item-link">Applications</a>
+                <div class="accordion-item-content">
+                  Parturient nascetur ut sed sagittis dolor placerat, nunc ridiculus, tristique amet egestas! Integer amet scelerisque sagittis ultricies, amet. Enim? Aliquet odio risus ultricies! Augue elementum purus in? Augue hac, turpis aliquet, cursus, scelerisque ac! Augue amet adipiscing egestas. Hac odio in magnis. Proin purus. Ac? Odio mid pid sed nisi. Nunc, amet enim aliquam parturient? Porttitor nec risus dapibus, tincidunt sed integer eros tristique augue. Rhoncus. Porttitor! Sed ac magna mus placerat dignissim adipiscing amet? Lundium nunc et purus? Enim augue, sed facilisis habitasse? Dignissim a odio rhoncus diam. Ridiculus eleme
+                </div>
+            </div>
+            <div class="accordion-item">
+                <a href="#" class="accordion-item-link">Services</a>
+                <div class="accordion-item-content">
+Parturient nascetur ut sed sagittis dolor placerat, nunc ridiculus, tristique amet egestas! Integer amet scelerisque sagittis ultricies, amet. Enim? Aliquet odio risus ultricies! Augue elementum purus in? Augue hac, turpis aliquet, cursus, scelerisque ac! Augue amet adipiscing egestas. Hac odio in magnis. Proin purus. Ac? Odio mid pid sed nisi. Nunc, amet enim aliquam parturient? Porttitor nec risus dapibus, tincidunt sed integer eros tristique augue. Rhoncus. Porttitor! Sed ac magna mus placerat dignissim adipiscing amet? Lundium nunc et purus? Enim augue, sed facilisis habitasse? Dignissim a odio rhoncus diam. Ridiculus eleme
+                </div>
+            </div>
+        </div>
+        <script src="http://yui.yahooapis.com/3.10.1/build/yui/yui-min.js"></script>
+        <script src="./../../../build/gallery-simple-accordion/gallery-simple-accordion.js"></script>
+        <script type="text/javascript">
+            YUI().use('gallery-simple-accordion', 'node', function(Y) {
+                Y.on('domready', function() {
+                    var simpleAccordion = new Y.SimpleAccordion({
+                        mainNode: Y.one('.one-accordion')
+                    });
+                });
+
+
+            });
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+    "gallery-datepicker": {
+        "requires": [
+            "widget"
+        ],
+        "skinnable": true
+    }
+}

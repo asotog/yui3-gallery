@@ -1,0 +1,11 @@
+{
+    "name"       : "gallery-datepicker",
+    "displayName": "Gallery: gallery-datepicker",
+    "description": "*Summary Goes Here*",
+    "author"     : [ "asotog88" ],
+    "use"        : [ "gallery-datepicker" ],
+
+    "tags": [ "gallery" ],
+
+    "examples": []
+}
